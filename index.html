@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <!-- My first ever JavaScript project! woo! -->
-<!--Image by <a href="https://pixabay.com/users/Clker-Free-Vector-Images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=34536">Clker-Free-Vector-Images</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=34536">Pixabay</a>
-Image by Clker-Free-Vector-Images from Pixabay-->
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="main.css">
+    <title id="title">Dashboard</title>
+    <link rel="stylesheet" href="green.css">
     <script src="funcs.js"></script>
   </head>
   <body id="body" onload="bootStrap()">
     <noscript><div id="banner" style="padding:2px;background:linear-gradient(to right,#770000,#550000) fixed;border:4px solid #ff0000;color:#ffffff;text-align: center;">You need JavaScript to run this app.</div></noscript>
     <div align="center">
-      <h2>Dashboard</h2><br><br>
+      <h2 id="h2">Dashboard</h2><br>
+      <h3 id="status"></h3><br><br>
 
       <div class="button" id="timeButton" onclick="return DoTime()" title="Click me again to refresh time!">Click me to display Date and time.</div>
-     </div>
+      <div class="box" id="note"></div>
+    </div>
     <div id="footer">
       <a href="#" onclick="return removeAll()" style="font-family: comic; color: #000000; text-decoration: none; cursor: default;">Delete all cookies.</a>
     </div>

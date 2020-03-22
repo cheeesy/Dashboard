@@ -32,6 +32,22 @@ function validateName() {
     }
 }
 
+function validateNote() {
+    var x = document.getElementById('noteArea').value;
+    if(x=="") { // Note is empty.
+	alert("Please fill in some content.");
+	return false;
+    } else {
+	document.getElementById('status').innerHTML = "Note saved.";
+	document.getElementById('note').innerHTML = x + '<br><p style="color: #ff0000;" onclick="return deleteNote()">[X]</p>';
+	document.cookie = "note=" + x;
+    }
+}
+function deleteNote() {
+    document.cookie = "note=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+    document.getElementById('note').remove();
+    document.getElementById('status').innerHTML = "Note deleted.";
+}
 
 function bootStrap() {
     if(getCookieValue("username")!="") {
@@ -39,6 +55,13 @@ function bootStrap() {
 	window.location = "./setup.html";
     }
     setTheme("");
+    if(getCookieValue("note")!="") {
+	document.getElementById('note').innerHTML = getCookieValue("note") + '<br><p style="color: #ff0000;" onclick="return deleteNote()">[X]</p>';
+    } else {
+	document.getElementById('note').innerHTML = '<p>Add new Note:</p><textarea id="noteArea" rows="4" cols="50">Lorem Ipsum dolor sit amet.</textarea><br><br><div class="button" onclick="return validateNote()">Submit</div>';
+    }
+    document.getElementById('title').innerHTML = getCookieValue("username") + "'s Dashboard";
+    document.getElementById('h2').innerHTML = getCookieValue("username") + "'s Dashboard";
 }
 
 function setTheme(x) {
@@ -62,5 +85,10 @@ function setTheme(x) {
 }
 
 function removeAll() {
-    alert("Close your browser to delete all cookies! There is no expiry date yet.");
+    alert("Removing all Data...");
+    document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+    document.cookie = "theme=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+    document.cookie = "note=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+    alert("All User Data removed! You will be moved to the Installer!");
+    window.location = "./setup.html";
 }
