@@ -14,41 +14,10 @@ Image by Clker-Free-Vector-Images from Pixabay-->
     <div align="center">
       <h2>Dashboard</h2><br><br>
 
-      <div class="button" onclick="this.innerHTML = window.location.pathname.substr(0, window.location.pathname.length - 11);">Click me to display Date and time.</div>
-      <!--<button type="button" onclick="this.innerHTML = window.location.pathname.substr(0, window.location.pathname.length - 11);">
-	Click me to display Date and time.</button>-->
-
-      <div class="box" id="demo">
-	<p id="Obacht"></p>
-<!--	<form name="myForm" onsubmit="return validateForm()" method="post"> -->
-	  <abbr>Name:</abbr> <input type="text" id="fname" name="fname">
-	  <div class="button" onclick="return validateName()">Submit</div>
-	  <!-- <button type="button" onclick="return validateName()">Submit</button> -->
-	  <!--<input type="submit" value="Submit">-->
-	  <!--	</form> -->
-	<br>
-        <p><abbr id="rName">
-	  <script>
-	    
-	  </script>
-	</abbr></p>
-      </div><br>
-      <div class="box" id="themeChoose">
-	<abbr>Which theme do you want active?</abbr>
-	<fieldset>
-	  <input type="radio" id="wjpg" name="Theme" value="WolkenJPEG">
-	  <label for="wjpg">WolkenJPEG</label>
-	  <input type="radio" id="wsvg" name="Theme" value="WolkenSVG">
-	  <label for="wsvg">WolkenSVG</label>
-	  <input type="radio" id="sky" name="Theme" value="SkySVG">
-	  <label for="sky">SkySVG</label>
-	</fieldset>
-	<div class="button" onclick="return checkTheme()">Submit</div>
-	<div class="box" id="rTheme"></div>
-      </div>
-    </div>
+      <div class="button" id="timeButton" onclick="return DoTime()" title="Click me again to refresh time!">Click me to display Date and time.</div>
+     </div>
     <div id="footer">
-      <a href="#" onclick="return removeAll()">Delete all cookies.</a>
+      <a href="#" onclick="return removeAll()" style="font-family: comic; color: #000000; text-decoration: none; cursor: default;">Delete all cookies.</a>
     </div>
   </body>
 </html>

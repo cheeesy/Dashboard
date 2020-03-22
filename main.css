@@ -1,20 +1,16 @@
 @font-face {
     font-family: comic;
-    src: url('bold.otf');
+    src: url('img/bold.otf');
 }
 
 abbr { font-family: sans-serif; }
 
 body {
-    background-image: url(clouds.svg);
-    background-size: cover;
-  //  background-repeat: no-repeat;
-//    background-position: center center;
     font-family: sans-serif;
 }
 
-h2 { font-family: comic; display: inline; }
-h2:hover {
+h2, h3 { font-family: comic; display: inline; }
+h2:hover, h3:hover {
     text-decoration: underline;
 }
 
@@ -38,12 +34,10 @@ div .button {
     border: 2px solid #000000;
     border-radius: 16px;
     color: #ffffff;
-    background: linear-gradient(to right, #2e6, #2e6d2f) fixed;
+    background: linear-gradient(to bottom right, #00aa00, #005500);
 }
 
-div #footer {
-    position: absolute;
-    text-align: right;
+#footer {
+    position: fixed;
     bottom: 0;
-    border-top: 2px solid #000000;
 }

@@ -1,3 +1,16 @@
+function DoTime() {
+    var d = new Date();
+    var h = d.getHours();
+    var m = d.getMinutes();
+    var T = h + ":";
+    if(m<=9) {
+	T = T + "0" + m;
+    } else {
+	T = T + m;
+    }
+    document.getElementById('timeButton').innerHTML = T;
+}
+
 function getCookieValue(a) {
     var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
     return b ? b.pop() : '';
@@ -18,35 +31,36 @@ function validateName() {
 	document.cookie = "username=" + x; // Create a cookie with name "username" and value x.
     }
 }
-function checkTheme() {
-    var r1 = document.getElementById('wjpg').checked;
-    var r2 = document.getElementById('wsvg').checked;
-    var r3 = document.getElementById('sky').checked;
-    if(r1==true) { document.getElementById('rTheme').innerHTML = "WolkenJPEG"; }
-    if(r2==true) { document.getElementById('rTheme').innerHTML = "WolkenSVG"; }
-    if(r3==true) { document.getElementById('rTheme').innerHTML = "SkySVG"; }
 
-    if(r1==true) { document.cookie = "theme=WolkenJPEG"; }
-    if(r2==true) { document.cookie = "theme=WolkenSVG"; }
-    if(r3==true) { document.cookie = "theme=SkySVG"; } 
-}
-
-function setTheme() {
-    var theme = getCookieValue("theme");
-    console.log(theme);
-
-    if(theme=="WolkenJPEG") { document.getElementById('body').style = "background-image: url(bg.jpg);background-size:cover;font-family:sans-serif;"; }
-    if(theme=="WolkenSVG") { document.getElementById('body').style = "background-image: url(clouds.svg);background-size:cover;font-family:sans-serif;"; }
-    if(theme=="SkySVG") { document.getElementById('body').style = "background-image: url(sky.svg);background-size:cover;font-family:sans-serif;"; }
-}
 
 function bootStrap() {
-    setTheme();
-    var y = getCookieValue("username");
-    if(y!="") { document.getElementById('demo').remove() }
-    if(getCookieValue("theme")!="") { document.getElementById('themeChoose').remove() }
+    if(getCookieValue("username")!="") {
+    } else {
+	window.location = "./setup.html";
+    }
+    setTheme("");
+}
+
+function setTheme(x) {
+    if(x=="") {
+	var theme = getCookieValue("theme");
+    } else {
+	var theme = x; // This is needed for the testing out of different Themes.
+    }
+    //var theme = getCookieValue("theme");
+    //console.log(theme);
+
+    if(theme=="WolkenJPEG") { document.getElementById('body').style = "background-image: url(img/bg.jpg);background-size:cover;font-family:sans-serif;"; }
+    if(theme=="WolkenSVG") { document.getElementById('body').style = "background-image: url(img/clouds.svg);background-size:cover;font-family:sans-serif;"; }
+    if(theme=="SkySVG") { document.getElementById('body').style = "background-image: url(img/sky.svg);background-size:cover;font-family:sans-serif;"; }
+
+    if(x!="") {
+	document.getElementById('status').innerHTML = "Theme set!";
+	document.getElementById('themeChoose').remove();
+	document.getElementById('goBack').innerHTML = "<div class=\"button\" onclick=\"window.location = './index.html';\">Go Back</div>";
+    }
 }
 
 function removeAll() {
-    console.log("Close your browser to delete all cookies! There is no expiry date.");
+    alert("Close your browser to delete all cookies! There is no expiry date yet.");
 }
