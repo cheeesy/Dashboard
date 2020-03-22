@@ -1,0 +1,49 @@
+@font-face {
+    font-family: comic;
+    src: url('bold.otf');
+}
+
+abbr { font-family: sans-serif; }
+
+body {
+    background-image: url(clouds.svg);
+    background-size: cover;
+  //  background-repeat: no-repeat;
+//    background-position: center center;
+    font-family: sans-serif;
+}
+
+h2 { font-family: comic; display: inline; }
+h2:hover {
+    text-decoration: underline;
+}
+
+div .box {
+    font-family: comic;
+    background: linear-gradient(to bottom right, #ffffff, #aaaaaa) fixed;
+    padding: 15px;
+    margin: 15px;
+    border: 4px solid #2e6d2f;
+    border-radius: 8px;
+}
+div .box:empty {
+    display:none;
+}
+
+div .button {
+    padding: 5px;
+    display: inline;
+    font-family: comic;
+//    width: 75%;
+    border: 2px solid #000000;
+    border-radius: 16px;
+    color: #ffffff;
+    background: linear-gradient(to right, #2e6, #2e6d2f) fixed;
+}
+
+div #footer {
+    position: absolute;
+    text-align: right;
+    bottom: 0;
+    border-top: 2px solid #000000;
+}
